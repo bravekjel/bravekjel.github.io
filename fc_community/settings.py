@@ -25,7 +25,7 @@ SECRET_KEY = 'ohjx=w37=1g!#di4l$mvo9^0&1a4+2+o(n84e&w1#z$uvh8-2_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bravekjel.github.io']
+ALLOWED_HOSTS = ['bravekjel/bravekjel.github.io']
 
 
 GOOGLE_CLIENT_ID = '723968960787-q6tl2eb9e1ud0ddqk1ah3sr0avbs8mad.apps.googleusercontent.com'

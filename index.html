@@ -1,5 +1,7 @@
-<html lang="en">
+<!--side-content 스타일링 적용 (완성 후)-->
+<!DOCTYPE html>
 
+<html lang="en">
 
   <head>
 
@@ -23,75 +25,6 @@
 
     <title>The Web framework for perfectionists with deadlines | Django</title>
 
-
-<script>
-
-function sfind(){
-	var invocation = new XMLHttpRequest();
-	var formName = document.sfind;
-	var str = $(formName).serialize();
-	var sname=$("#snames").val();
-	var sname1 = escape(sname);
-	var myurl = "http://api.seibro.or.kr/openapi/service/StockSvc/getStkIsinByNmN1?secnNm="+sname1+"&numOfRows=2&pageNo=1&ServiceKey=qMWBfGFhp4J1REtArquWOwxObYzh%2FoesRVV7scn4Hf3Xm%2BFEMMen0BMT4MhI%2BBwsrAlz5ik%2Bb87Q0pffXDuEFw%3D%3D";
-	var xurl = "http://mannaedu.com";
-	
-	var request = new XMLHttpRequest();
-	/* var req = urllib.request.Request(myurl);
-	var res = urllib.request.urlopen(req);
-	console.log("res="+res.read()) */
-	request.open('GET',myurl);
-	request.responseType='json';
-	request.send();
-	$.get(xurl, function(data){
-		console.log('data=='+data);
-	},"text/html");
-	$.ajax({
-		url : '${path}/snames/data.do',
-		type : 'get',
-		data : sname,
-		dataType : 'json',
-		success : function(msg){
-			console.log(msg.response.body.items.item);
-			var myItem = msg.response.body.items.item;
-			
-		
-		}
-	});
-	$.ajax({
-		type:"GET",
-		url:myurl,
-		 contentType: 'application/xml',
-		  dataType:'xml',
-		  responseType:'application/xml',
-		  headers: {
-			    'Access-Control-Allow-Credentials' : true,
-			    'Access-Control-Allow-Origin':'*',
-			    'Access-Control-Allow-Methods':'GET',
-			    'Access-Control-Allow-Headers':'application/xml',
-			  },
-		success: function(result){
-			console.log("success="+result);          
-			if($(result).find('items').length > 0){
-				$(result).find('items').each(function(){
-					console.log('종목번호'+$(this).find('shotnIsin').text());
-				});
-			}
-		},
-		error:function(result){
-			console.log("error="+result);
-		},
-		complete:function(result){
-			console.log("complete="+result);
-		}
-		
-	});
-}	
-
-
-
-
-		
-</script>
   </head>
 
   <body>
@@ -101,16 +34,24 @@ function sfind(){
       <div class="container">
 
         <h1 class="logo">
-        brave  kjel
+
+          <img
+
+            src="https://static.djangoproject.com/img/logo-django.42234b631760.svg"
+
+            alt="Django"
+
+          />
+
         </h1>
 
         <nav class="nav">
 
           <ul class="list">
 
-            <li class="list-item"><a href="${path}/board/list.do">board</a></li>
+            <li class="list-item"><a href="#">Overview</a></li>
 
-            <li class="list-item"><a href="${path}/search_stock/finan2.do">DaechaDownload</a></li>
+            <li class="list-item"><a href="#">Download</a></li>
 
             <li class="list-item"><a href="#">Documentation</a></li>
 
@@ -122,7 +63,7 @@ function sfind(){
 
             <li class="list-item"><a href="#">About</a></li>
 
-            <li class="list-item"><a href="#">β Donate</a></li>
+            <li class="list-item"><a href="#">♥ Donate</a></li>
 
           </ul>
 
@@ -140,13 +81,15 @@ function sfind(){
 
           <p class="intro-desc">
 
-            Web Project name=finance stock note.
+            Django makes it easier to build better Web apps more quickly and
+
+            with less code.
 
           </p>
 
-          <a data-toggle="modal" href="#search_stock" class="hero-cta cta">
+          <a href="#" class="hero-cta cta">
 
-            Searching stock with 6 numbers
+            Get started with Django
 
           </a>
 
@@ -176,22 +119,20 @@ function sfind(){
 
                 <a href="#">
 
-                  Using DATA.GO.KR
+                  Using Django
 
                 </a>
 
               </h3>
 
               <p class="mailing-desc">
-				<span class="img_open">
-				
-               Information
-				</span>
+
+                Get help with Django and follow announcements.
 
               </p>
 
-              <form action ="${path}/snames/find.do"   class="mailing-form" >
-					
+              <form action="#" class="mailing-form">
+
                 <label for="input-following"
 
                   >send email for following news</label
@@ -200,20 +141,17 @@ function sfind(){
 
                 <input
 
-                  type="text"
+                  type="email"
 
-                  placeholder="Stock name"
+                  placeholder="Enter email"
 
-                  id="snames"
+                  id="input-following"
 
-                  name="snames"
-                  />
-				
-				<!-- data-toggle="modal" data-target="#6nums" -->
-                
+                  name="input-following"
 
-           <a href="javascript:sfind()"  class="mailing-form-btn" >Find</a>
-                    <!-- <button type="submit" class="mailing-form-btn">Find</button>--> 
+                />
+
+                <button type="submit" class="mailing-form-btn">Submit</button>
 
               </form>
 
@@ -337,7 +275,7 @@ function sfind(){
 
                 Posted by <span>Carlton Gibson</span> on
 
-                <time datetime="2019-02-11">2μ 11, 2019</time>
+                <time datetime="2019-02-11">2월 11, 2019</time>
 
               </p>
 
@@ -381,10 +319,7 @@ function sfind(){
 
     </main>
 
-    <footer class="footer">νΈν°</footer>
-
-
-
+    <footer class="footer">푸터</footer>
 
   </body>
 
